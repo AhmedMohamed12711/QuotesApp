@@ -11,9 +11,17 @@ var quotes = [
     `"The best revenge is massive success.<br> -- Frank Sinatra"`,
     `"Resentment is like drinking poison and waiting for your enemies to die.<br> -- Nelson Mandela"`
 ];
+var lastQuote = null;
+
 function getRandomQuote() {
-    var randomIndex = Math.floor(Math.random() * quotes.length);
-    return quotes[randomIndex];
+    var newQuote;
+    do {
+        var randomIndex = Math.floor(Math.random() * quotes.length);
+        newQuote = quotes[randomIndex];
+    } while (newQuote === lastQuote); 
+
+    lastQuote = newQuote; 
+    return newQuote;
 }
 
 function click_btn(){
